@@ -21,7 +21,7 @@ def generate_images(file_address):
 
 def generate_audio(file_address, theme, language):
     if os.system(f"./translation/translate.sh {language}") != 0:
-        raise Exception("quebrou")
+        raise Exception("Error to translate")
 
     if os.system("rm audios/*") != 0:
         pass
