@@ -1,2 +1,2 @@
 # VidelBot
-Revolutioning shit content on Youtube
+Revolution of shit content on Youtube
