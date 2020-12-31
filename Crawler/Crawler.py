@@ -1,3 +1,6 @@
+import os
 from icrawler.builtin import BingImageCrawler
-BingImageCrawler = BingImageCrawler(storage={'root_dir': 'images'})
-BingImageCrawler.crawl(keyword = 'sad human faces', max_num = 5)
+def getImages(theme, image, num=1):
+    crawler = BingImageCrawler(storage={'root_dir': f'images'})
+    crawler.crawl(keyword = theme+' '+image, max_num = num)
+    os.system(f"mv images/000001.jpg images/{image}.jpg")
