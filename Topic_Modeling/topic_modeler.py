@@ -1,8 +1,12 @@
 import pandas as pd
 import numpy as np
+from nltk import download
 from sklearn.feature_extraction.text import CountVectorizer
 from nltk.stem import WordNetLemmatizer
 from sklearn.decomposition import LatentDirichletAllocation
+
+#download wordnet
+download("wordnet")
 
 lemm = WordNetLemmatizer()
 class LemmaCountVectorizer(CountVectorizer):
