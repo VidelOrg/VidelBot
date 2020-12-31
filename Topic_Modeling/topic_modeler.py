@@ -14,7 +14,11 @@ class LemmaCountVectorizer(CountVectorizer):
         analyzer = super(LemmaCountVectorizer, self).build_analyzer()
         return lambda doc: (lemm.lemmatize(w) for w in analyzer(doc))
 
-text = ['These chocolate covered espresso beans are wonderful!  The chocolate is very dark and rich and the "beans" inside is a very delightful blend of flavors with just enough caffine to really give it a zing.']
+
+with open('translation/text-out.txt', 'r') as file:
+    data = file.read().replace('\n', '')
+
+text = [data]
 count_vect = LemmaCountVectorizer(stop_words='english')
 doc_term_matrix = count_vect.fit_transform(text)
 
