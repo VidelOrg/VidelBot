@@ -4,6 +4,7 @@ from nltk import download
 from sklearn.feature_extraction.text import CountVectorizer
 from nltk.stem import WordNetLemmatizer
 from sklearn.decomposition import LatentDirichletAllocation
+import sys
 
 #download wordnet
 download("wordnet")
@@ -14,8 +15,9 @@ class LemmaCountVectorizer(CountVectorizer):
         analyzer = super(LemmaCountVectorizer, self).build_analyzer()
         return lambda doc: (lemm.lemmatize(w) for w in analyzer(doc))
 
+file_address = sys.argv[1]
 
-with open('translation/text-out.txt', 'r') as file:
+with open(file_address, 'r') as file:
     data = file.read().replace('\n', '')
 
 text = [data]
